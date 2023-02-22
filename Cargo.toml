@@ -1,0 +1,15 @@
+[package]
+name = "string-color"
+version = "0.1.0"
+edition = "2021"
+authors = ["Amit Shah <amit@ashah.de>"]
+repository = "git+https://github.com/mylifenp/string-color.git"
+license = "MIT"
+description = "Get a unique color for a string. Everytime the same string is passed, the same color is returned."
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+murmur3 = "0.5.2"
+wasm-bindgen = "0.2.84"

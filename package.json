@@ -1,0 +1,49 @@
+{
+  "name": "@mylifenp/string-color",
+  "version": "1.0.0",
+  "description": "A string always gets the same color.",
+  "main": "dist/lib/index.ts",
+  "types": "dist/lib/index.d.ts",
+  "files": [
+    "/dist"
+  ],
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "build:lib": "cargo build --release && wasm-pack build --target nodejs --release",
+    "test": "mocha --require ts-node/register test/**/*.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mylifenp/string-color.git"
+  },
+  "keywords": [
+    "colors",
+    "color",
+    "string",
+    "unique",
+    "color",
+    "for",
+    "a",
+    "string",
+    "using",
+    "rust",
+    "using",
+    "wasm"
+  ],
+  "author": "Amit Shah <mylifenp@yahoo.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mylifenp/string-color/issues"
+  },
+  "homepage": "https://github.com/mylifenp/string-color#readme",
+  "devDependencies": {
+    "@types/chai": "^4.3.4",
+    "@types/mocha": "^10.0.1",
+    "chai": "^4.3.7",
+    "mocha": "^10.2.0",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.9.5"
+  }
+}
