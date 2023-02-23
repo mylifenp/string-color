@@ -1,4 +1,4 @@
-import { get_color } from "../pkg/string_color";
+import { get_color } from "@mylifenp/string-color-wasm";
 
 export const enum ColorFormat {
   RGB = "rgb",

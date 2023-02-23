@@ -1,6 +1,6 @@
 {
   "name": "@mylifenp/string-color",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A string always gets the same color.",
   "main": "dist/lib/index.js",
   "types": "dist/lib/index.d.ts",
@@ -8,8 +8,7 @@
     "/dist"
   ],
   "directories": {
-    "lib": "lib",
-    "pkg": "pkg"
+    "lib": "lib"
   },
   "scripts": {
     "build": "cargo build --release && wasm-pack build --target nodejs --release && npx tsc",
@@ -43,7 +42,7 @@
   },
   "homepage": "https://github.com/mylifenp/string-color#readme",
   "dependencies": {
-    "string-color": "^1.0.0"
+    "@mylifenp/string-color-wasm": "^0.1.0"
   },
   "devDependencies": {
     "@types/chai": "^4.3.4",

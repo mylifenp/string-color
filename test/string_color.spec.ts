@@ -1,6 +1,6 @@
 import * as mocha from "mocha";
 import * as chai from "chai";
-import { ColorFormat, string_color } from "../lib";
+import { get_color } from "@mylifenp/string-color-wasm";
 
 const expect = chai.expect;
 
@@ -12,36 +12,30 @@ const hwb_result = "hwb(62, 36%, 12%)";
 
 describe("string_color", () => {
   it("should return a hex color as default when return format not provided", () => {
-    expect(string_color(test_string)).to.equal(hex_result);
+    expect(get_color(test_string, "")).to.equal(hex_result);
   });
   it("should give another color when text is different", () => {
-    expect(string_color(`${test_string},`)).to.not.equal(hex_result); // comma added
+    expect(get_color(`${test_string},`, "")).to.not.equal(hex_result); // comma added
   });
   it("should return a hex color when return format is hex", () => {
-    expect(string_color(test_string, ColorFormat.HEX)).to.equal(hex_result);
+    expect(get_color(test_string, "hex")).to.equal(hex_result);
   });
   it("should return a cmyk color when return format is cmyk", () => {
-    expect(string_color(test_string, ColorFormat.CMYK)).to.equal(cmyk_result);
+    expect(get_color(test_string, "cmyk")).to.equal(cmyk_result);
   });
   it("should return a different cmyk color when text changes", () => {
-    expect(string_color(`${test_string}test`, ColorFormat.CMYK)).to.not.equal(
-      cmyk_result
-    );
+    expect(get_color(`${test_string}test`, "cmyk")).to.not.equal(cmyk_result);
   });
   it("should return a hsl color when return format is hsl", () => {
-    expect(string_color(test_string, ColorFormat.HSL)).to.equal(hsl_result);
+    expect(get_color(test_string, "hsl")).to.equal(hsl_result);
   });
   it("should return a different hsl color when text changes", () => {
-    expect(string_color(`${test_string}testhsl`, ColorFormat.HSL)).to.not.equal(
-      cmyk_result
-    );
+    expect(get_color(`${test_string}testhsl`, "hsl")).to.not.equal(cmyk_result);
   });
   it("should return a hwb color when return format is hwb", () => {
-    expect(string_color(test_string, ColorFormat.HWB)).to.equal(hwb_result);
+    expect(get_color(test_string, "hwb")).to.equal(hwb_result);
   });
   it("should return a different hwb color when text changes", () => {
-    expect(string_color(`${test_string}test`, ColorFormat.HWB)).to.not.equal(
-      cmyk_result
-    );
+    expect(get_color(`${test_string}test`, "hwb")).to.not.equal(cmyk_result);
   });
 });
