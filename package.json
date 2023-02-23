@@ -1,17 +1,21 @@
 {
   "name": "@mylifenp/string-color",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "A string always gets the same color.",
-  "main": "dist/lib/index.ts",
+  "main": "dist/lib/index.js",
   "types": "dist/lib/index.d.ts",
   "files": [
     "/dist"
   ],
   "directories": {
-    "lib": "lib"
+    "lib": "lib",
+    "pkg": "pkg"
   },
   "scripts": {
-    "build:lib": "cargo build --release && wasm-pack build --target nodejs --release",
+    "build": "cargo build --release && wasm-pack build --target nodejs --release && npx tsc",
+    "publish-lib": "npm run build && npm publish --access public",
+    "publish-beta": "npm run build && npm publish  --access public --tag beta",
+    "publish-dryrun": "npm run build && npm publish --access public --dry-run",
     "test": "mocha --require ts-node/register test/**/*.ts"
   },
   "repository": {
@@ -38,6 +42,9 @@
     "url": "https://github.com/mylifenp/string-color/issues"
   },
   "homepage": "https://github.com/mylifenp/string-color#readme",
+  "dependencies": {
+    "string-color": "^1.0.0"
+  },
   "devDependencies": {
     "@types/chai": "^4.3.4",
     "@types/mocha": "^10.0.1",
